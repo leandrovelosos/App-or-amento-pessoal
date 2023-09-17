@@ -65,6 +65,33 @@ class Bd {
             produzido pelo metodo proximo id
         */
     }
+
+    recuperarTodosRegistros(){
+
+        //array despesas
+        let despesas = Array()
+
+        let id = localStorage.getItem('id')
+
+        //recuperar todas as despesas cadastradas em localstorage
+        for(let i = 1; i <=id; i++){
+
+            //recuperar a despesa 
+            let despesa = JSON.parse(localStorage.getItem(i))
+
+            /*existe a possibilidade de haver índices que foram 
+            removidos ou pulados neste caso o indice sera pulado do registro
+             */
+            if(despesa == null){
+                continue
+            }
+
+            despesas.push(despesa)
+           
+        }
+
+        return despesas
+    }
 }
 
 let bd = new Bd()
@@ -109,7 +136,12 @@ function cadastrarDespesa(){
             
 
         }
-       
+
 }
 
+function carregaListaDespesas(){
+    let despesas = []
+    despesas = bd.recuperarTodosRegistros()
 
+    console.log(despesas)
+}
