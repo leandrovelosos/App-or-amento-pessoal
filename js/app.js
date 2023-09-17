@@ -8,6 +8,8 @@ class Despesa{
         this.valor = valor
     }
 
+    /* o i recebe a referencia aos atributos  do objeto despesa 
+    this[i] faz referencia ao valor contido em cada atributo de despesa */
     validarDados(){
         for(let i in this){
             if(this[i] == undefined || this[i] == null || this[i] == ''){
@@ -85,9 +87,13 @@ function cadastrarDespesa(){
 
         if(despesa.validarDados()){
            // bd.gravar(despesa)
+           //dialog de sucesso
            console.log('dados validos')
+           $('#sucessoGravacao').modal('show')
         }else{
+            //dialog de erro
             console.log('dados invalidos')
+            $('#erroGravacao').modal('show')
         }
        
 }
