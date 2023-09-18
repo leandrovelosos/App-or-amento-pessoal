@@ -123,6 +123,14 @@ function cadastrarDespesa(){
             document.getElementById('btn_Voltar').innerHTML = 'Voltar'
             
            $('#modalRegistraDespesa').modal('show')
+           //limpa campos
+           ano.value = ''
+           mes.value = ''
+           dia.value = ''
+           tipo.value = ''
+           descricao.value = ''
+           valor.value = ''
+
         }else{
             //dialog de erro
             console.log('dados invalidos')
@@ -169,7 +177,7 @@ function carregaListaDespesas(){
                     break
             }
         linha.insertCell(1).innerHTML = d.tipo
-        
+
         linha.insertCell(2).innerHTML = d.descricao
         linha.insertCell(3).innerHTML = d.valor
     })
